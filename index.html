@@ -1,7 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+        }
+        .hero {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background-color: #d6ff00;
+        }
+        .hero-text {
+            max-width: 600px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .hero .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .hero .button:hover {
+            background-color: #333;
+        }
+        .section {
+            padding: 50px;
+            text-align: center;
+        }
+        .resume, .projects, .contact {
+            height: 100vh;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <nav class="navbar">
+        <a href="#about">About Me</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div id="about" class="hero">
+        <div class="hero-text">
+            <h1>Hello, I'm [Your Name]</h1>
+            <p>Welcome to my website! I'm excited to share my journey, work, and passions with you.</p>
+            <a href="#resume" class="button">Learn More</a>
+        </div>
+    </div>
+
+    <div id="resume" class="section resume">
+        <h2>Resume</h2>
+        <p>Details about your professional experience, education, and skills go here.</p>
+    </div>
+
+    <div id="projects" class="section projects">
+        <h2>Projects</h2>
+        <p>Highlight your key projects here with descriptions and links to demos or code.</p>
+    </div>
+
+    <div id="contact" class="section contact">
+        <h2>Contact</h2>
+        <p>Provide your contact details or a form for visitors to reach out to you.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+    </footer>
 </body>
 </html>
