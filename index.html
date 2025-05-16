@@ -65,8 +65,19 @@
             padding: 50px;
             text-align: center;
         }
-        .resume, .projects, .contact {
+        
+        .about{
             height: 100vh;
+        }
+        .resume{
+            height: 100vh;
+        }
+        .projects {
+            height: 100vh;
+            margin-bottom: 200px;
+        }
+        .contact {
+            height: 50vh;
         }
         footer {
             text-align: center;
@@ -93,24 +104,36 @@
         </div>
     </div>
 
-    <div id="about" class="section about" style="height: 100vh;">
+    <div id="about" class="section about">
         <h2>About Me</h2>
         <p>I'm a UCI computer engineering student who loves to code and explore with making projects work. 
             I'm currently in the process of writing this website so that I can show my resume and off all 
-            my projects in one place as well as my resume. <br><br> 
+            my projects in one place as well as my resume.
+            <br><br> 
             This website is currently a WIP and not ready to be
-             completely shown off since I need to rework a good portion of it. <br><br> 
-             (Write a brief introduction about yourself here. Include your interests, background, and what you do)</p>
+             completely shown off since I need to rework a good portion of it.
+            <br><br> 
+            (Write a brief introduction about yourself here. Include your interests, background, and what you do)
+        </p>
     </div>
     
-    <div id="resume" class="section resume style="height: 100vh;">
+    <div id="resume" class="section resume">
         <h2>Resume</h2>
         <p>Details about your professional experience, education, and skills go here.</p>
     </div>
 
-    <div id="projects" class="section projects style="height: 100vh;">
-        <h2>Projects</h2>
+    <div id="projects" class="section projects">
+        <h2>Projects:</h2>
         <p>Highlight your key projects here with descriptions and links to demos or code.</p>
+        <br>
+        <h3>Chess Game</h3>
+        <p>This is a working chess game that you can play by entering moves and pressing enter or clicking the submit button.  This program started as a team project for UCI EECS 22L but I wanted to go farther with the project because I was interested in development so I took the terminal game that we created and made it playable on my website.</p>
+        <iframe src="chess.html" width="400" height="290" style="border: none;"></iframe>
+        <p>Some of the main challenges were:
+            <br> Getting the terminal colors to work (I used ASCII Escape codes for the original terminal game), 
+            <br> Figuring out Emscripten (the converter that allowed my C language program to convert to .html, .js, & .wasm needed to run this terminal game), 
+            <br> & Getting the correct spacing/font/padding to ensure the UI looks correct in the browser.
+        </p>
     </div>
 
     <div id="contact" class="section contact">

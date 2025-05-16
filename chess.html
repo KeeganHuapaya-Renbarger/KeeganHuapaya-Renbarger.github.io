@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Emscripten-Generated Code</title>
+    <style>body {
+  font-family: arial;
+  margin: 0;
+  padding: none;
+}
+
+.emscripten { padding-right: 0; margin-left: auto; margin-right: auto; display: block; }
+div.emscripten { text-align: center; }
+div.emscripten_border { border: 1px solid black; }
+/* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+canvas.emscripten { border: 0px none; background-color: black; }
+
+#emscripten_logo {
+  display: inline-block;
+  margin: 0;
+  padding: 6px;
+  width: 265px;
+}
+
+.spinner {
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  margin-top: 20px;
+  margin-left: 20px;
+  display: inline-block;
+  vertical-align: top;
+
+  -webkit-animation: rotation .8s linear infinite;
+  -moz-animation: rotation .8s linear infinite;
+  -o-animation: rotation .8s linear infinite;
+  animation: rotation 0.8s linear infinite;
+
+  border-left: 5px solid rgb(235, 235, 235);
+  border-right: 5px solid rgb(235, 235, 235);
+  border-bottom: 5px solid rgb(235, 235, 235);
+  border-top: 5px solid rgb(120, 120, 120);
+
+  border-radius: 100%;
+  background-color: rgb(189, 215, 46);
+}
+
+@-webkit-keyframes rotation {
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes rotation {
+  from {-moz-transform: rotate(0deg);}
+  to {-moz-transform: rotate(360deg);}
+}
+@-o-keyframes rotation {
+  from {-o-transform: rotate(0deg);}
+  to {-o-transform: rotate(360deg);}
+}
+@keyframes rotation {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+#status {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 30px;
+  margin-left: 20px;
+  font-weight: bold;
+  color: rgb(120, 120, 120);
+}
+
+#progress {
+  height: 20px;
+  width: 300px;
+}
+
+#controls {
+  display: inline-block;
+  float: right;
+  vertical-align: top;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+#output {
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-left: 0px;
+  border-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  display: block;
+  background-color: black;
+  color: white;
+  font-family: 'Lucida Console', Monaco, monospace;
+  outline: none;
+}
+</style>
+  </head>
+  <body>
+    <div class="emscripten">
+      <progress value="0" max="100" id="progress" hidden=1></progress>
+    </div>
+    
+    <!-- Modification1 -->
+    <div id="game-output" style="white-space:pre-wrap; background:#111; color:#fff; padding:10px 60px; height:230px; overflow-y:auto; font-family:'DejaVu Sans Mono', 'Consolas', 'Menlo', 'Monaco', 'Lucida Console', monospace;"></div>
+    <div id="input-area" style="margin-top:10px;">
+      <input id="game-input" type="text" placeholder="Enter move (e.g., a2 a4)">
+      <button id="submit-move">Submit</button>
+      <button id="reset-game">Reset Game</button>
+    </div>
+    
+    
+    <script>
+    // Output redirection: all printf goes to #game-output
+    var ansiToHtml = (function() {
+    // Map ANSI color codes to CSS
+    function rgbBg(r, g, b) {
+      return `background: rgb(${r},${g},${b});line-height:1.1em;`;
+    }
+    function fgColor(code) {
+      if (code === "30") return "color: black;";
+      if (code === "37") return "color: white;";
+      return "";
+    }
+    // Parse ANSI escape codes for 48;2;r;g;b (background) and 30/37 (fg)
+    return function ansiToHtml(text) {
+      // Replace background color
+      text = text.replace(/\x1b\[48;2;(\d+);(\d+);(\d+)m/g, function(_, r, g, b) {
+        return `<span style="${rgbBg(r, g, b)}">`;
+      });
+      // Replace foreground color
+      text = text.replace(/\x1b\[(3[07])m/g, function(_, code) {
+        return `<span style="${fgColor(code)}">`;
+      });
+      // Reset
+      text = text.replace(/\x1b\[0m/g, "</span></span>");
+      // Replace newlines with <br>
+      text = text.replace(/\n/g, "<br>");
+      return text;
+    };
+  })();
+
+  var Module = {
+    print: function(text) {
+      var out = document.getElementById('game-output');
+      out.innerHTML += ansiToHtml(text) + "<br>";
+      out.scrollTop = out.scrollHeight;
+    }
+  };
+
+    // Input handling
+    function sendMove() {
+      var move = document.getElementById('game-input').value;
+      if (move) {
+        Module.ccall('provide_input', null, ['string'], [move + '\n']);
+        document.getElementById('game-input').value = '';
+      }
+    }
+    document.getElementById('submit-move').onclick = sendMove;
+    document.getElementById('game-input').onkeydown = function(e) {
+      if (e.key === 'Enter') sendMove();
+    };
+
+    // Reset game button
+    document.getElementById('reset-game').onclick = function() {
+      location.reload();
+    };
+    </script>
+    <script src="chess.js"></script>
+  </body>
+</html>
