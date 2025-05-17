@@ -4,86 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
+    <!-- NOTE: padding & etc "em" are calculated by:
+               pixels / (font_size * 16) 
+               when calculation was done 16 * 1.4 = 22.4
+               so 1em = 22.4px
+               Only ones I left alone are border-radius,
+               those affect the corners of boxes & are
+               better with pixels.
+
+               Also note: I used em because em & vw are
+               relative units meaning they will scale
+               with the screen size.
+               -->
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             color: #000;
+            background: #fff;
         }
         .navbar {
             display: flex;
             justify-content: space-around;
             align-items: center;
             background-color: #f8f8f8;
-            padding: 10px 0;
+            padding: 0.446em 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            text-align: center;
         }
         .navbar a {
             text-decoration: none;
             color: #000;
             font-weight: bold;
-            padding: 10px 20px;
+            padding: 0.446em 0.893em;
             border-radius: 5px;
+            transition: background 0.2;
         }
         .navbar a:hover {
             background-color: #ddd;
         }
+
+        html {
+            font-size: 1.4em;
+            scroll-padding-top: 2.93em;
+        }
+
         .hero {
             display: flex;
-            height: 100vh;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            min-height: 100vh;
             background-color: #d6ff00;
-        }
-        .hero-text {
-            max-width: 600px;
             text-align: center;
         }
-        .hero h1 {
-            font-size: 3em;
+        .hero-text {
+            max-width: 26.786em;
+            text-align: center;
+            margin: 0 auto;
+            padding-top: 2.23em;
+            padding-bottom: 2.23em;
+        }
+        .hero h1, .hero h2 {
+            font-size: 1.4em;
+            margin: 0;
         }
         .hero p {
             font-size: 1.2em;
-            margin: 20px 0;
+            margin: 0.893em 0;
         }
         .hero .button {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
+            margin-top: 0.893em;
+            padding: 0.446em 0.893em;
             background-color: #000;
             color: #fff;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
+            transition: background 0.2s;
         }
         .hero .button:hover {
             background-color: #333;
         }
+
         .section {
-            padding: 50px;
+            padding: 1em 10vw 1em 10vw;
             text-align: center;
+            color: #000;
+            background: #fff;
         }
         
-        .about{
-            height: 100vh;
+        .about, .resume, .projects, .contact {
+            width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
         }
-        .resume{
-            height: 100vh;
-        }
+
         .projects {
-            height: 100vh;
-            margin-bottom: 200px;
+            margin-bottom: 2.679em;
         }
-        .contact {
-            height: 50vh;
+
+        .chess-iframe {
+            width: 100%;
+            max-width: 44.64em;
+            aspect-ratio: 500 / 290;
+            height: auto;
+            display: block;
+            margin: 0 auto 0.89em auto;
+            background: #111;
+            border-radius: 8px;
         }
+
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 0.893em;
             background-color: #f8f8f8;
+            color: #000;
         }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 1em auto;
+            border-radius: 50%;
+        }
+        @media (max-width: 40.179em){
+            .section {
+                padding: 1.339em 3vw;
+            }
+            .hero h1, .hero h2 {
+                font-size: 2em;
+            }
+        }
+        @media (max-width: 26.786em) {
+        .navbar {
+            flex-direction: column;
+            padding: 0.223em 0;
+        }
+        .section {
+            padding: 0.893em 2vw;
+        }
+        .hero h1, .hero h2 {
+            font-size: 1.3em;
+        }
+        .chess-iframe {
+            max-width: 100vw;
+            min-height: 5.357em;
+            border-radius: 4px;
+        }
+    }
     </style>
 </head>
 <body>
@@ -97,7 +170,7 @@
 
     <div id="home" class="hero">
         <div class="hero-text">
-            <img src="square.webp" alt ="Myself by the beach Mother's Day 2025 Webp 75%" style="width: 200px; height: 200px; border-radius: 50%;">
+            <img src="square.webp" alt ="Myself by the beach Mother's Day 2025 Webp 75%" style="width: 15em; height: 15em; border-radius: 50%;">
             <h2> Hello! I'm Keegan Huapaya-Renbarger.</h2>
             <p>Welcome to my website! This is a cool place where I get to show off some of the fun projects I've worked on and my resume. Please take a look around!</p>
             <a href="#about" class="button">Learn More</a>
@@ -114,12 +187,19 @@
              completely shown off since I need to rework a good portion of it.
             <br><br> 
             (Write a brief introduction about yourself here. Include your interests, background, and what you do)
+            <!-- Temporary Spacing -->
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </p>
     </div>
     
     <div id="resume" class="section resume">
         <h2>Resume</h2>
-        <p>Details about your professional experience, education, and skills go here.</p>
+        <p>Details about your professional experience, education, and skills go here.
+            <!-- Temporary Spacing -->
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br>
+        
+        </p>
     </div>
 
     <div id="projects" class="section projects">
@@ -128,7 +208,7 @@
         <br>
         <h3>Chess Game</h3>
         <p>This is a working chess game that you can play by entering moves and pressing enter or clicking the submit button.  This program started as a team project for UCI EECS 22L but I wanted to go farther with the project because I was interested in development so I took the terminal game that we created and made it playable on my website.</p>
-        <iframe src="chess.html" width="400" height="290" style="border: none;"></iframe>
+        <iframe src="chess.html" class="chess-iframe" style="border: none;"></iframe>
         <p>Some of the main challenges were:
             <br> Getting the terminal colors to work (I used ASCII Escape codes for the original terminal game), 
             <br> Figuring out Emscripten (the converter that allowed my C language program to convert to .html, .js, & .wasm needed to run this terminal game), 
