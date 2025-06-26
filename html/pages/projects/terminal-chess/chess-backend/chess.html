@@ -4,79 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Emscripten-Generated Code</title>
-    <style>
-      body {
-        font-family: arial;
-        margin: 0;
-        padding: none;
-      }
-
-      .game-output {
-        white-space: pre-wrap;
-        background: #111;
-        color: #fff;
-        padding: 1vw;
-        width: 100%;
-        aspect-ratio: 1000 / 460;
-        max-width: 1000px;
-        min-width: 360px;
-        min-height: 170px;
-        max-height: 470px;
-        overflow-y: auto;
-        font-family: 'DejaVu Sans Mono', 'Consolas', 'Menlo', 'Monaco', 'Lucida Console', monospace;
-        box-sizing: border-box;
-        margin: 0 auto;
-        border-radius: 8px;
-        text-align: center;
-        font-size: 1.8em;
-      }
-      .input-area {
-        margin-top: 20px;
-        padding: 0 2vw;
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: center;
-      }
-      .input-area input[type="text"] {
-        flex: 1 1 120px;
-        min-width: 0;
-        padding: 8px;
-        font-size: 1.7em;
-      }
-      .input-area button {
-        padding: 6px 12px;
-        font-size: 1em;
-        border-radius: 4px;
-        border: none;
-        background: #555;
-        color: #fff;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .input-area button:hover {
-        background: #555;
-      }
-      @media (max-width: 1000px) {
-        .game-output {
-          max-width: 100vw;
-          min-width: 0;
-          aspect-ratio: 1000/460;
-          font-size: 1.7em;
-          padding: 1vw;
-          min-height: 120px;
-          max-height: 70vw;
-        }
-        .input-area {
-          max-width: 100vw;
-          padding: 0 1vw;
-          }
-      }
-    </style>
+    <link rel="stylesheet" href="terminal-chess-stylesheet.css">
   </head>
+
   <body>    
     <!-- Modification1 -->
     <div id="game-output" class="game-output"></div>

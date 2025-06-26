@@ -1,0 +1,338 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #000;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 0.446em 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    padding: 0.446em 0.893em;
+    border-radius: 5px;
+    transition: background 0.2;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+}
+
+html {
+    font-size: 1.4em;
+    scroll-padding-top: 2.93em;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 26.786em;
+    margin: 0 auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero h1, .hero h2 {
+    font-size: 1.4em;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin: 0.893em 0;
+}
+
+.hero .button {
+    display: inline-block;
+    margin-top: 0.893em;
+    padding: 0.446em 0.893em;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.hero .button:hover {
+    background-color: #333;
+}
+
+.section {
+    padding: 1em 10vw 1em 10vw;
+    text-align: center;
+    color: #000;
+    background: #fff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.about, .resume, .projects, .contact {
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.projects {
+    margin-bottom: 2.679em;
+}
+
+.chess-iframe {
+    width: 100%;
+    max-width: 44.64em;
+    aspect-ratio: 500 / 290;
+    height: auto;
+    display: block;
+    margin: 0 auto 0.89em auto;
+    background: #111;
+    border-radius: 8px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0.223em;
+    background-color: #f8f8f8;
+    color: #000;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1em auto;
+    border-radius: 50%;
+}
+
+/* Responsive - Landscape */
+@media (orientation: landscape) {
+    .navbar {
+        flex-direction: row;
+        font-size: 1em;
+        padding: 0.446em 0;
+    }
+    .project-buttons {
+        flex-direction: row;
+        gap: 1em;
+    }
+    .section {
+        padding: 1em 8vw;
+    }
+    footer {
+        padding: 0.5em 0.3em;
+        font-size: 1em;
+    }
+}
+
+/* Landscape + Laptop L */
+@media (orientation: landscape) and (max-width: 1440px) {
+    .navbar a, .project-buttons .button {
+        font-size: 1.2em;
+        padding: 0.6em 1em;
+    }
+    .hero-text img {
+        width: 35vw;
+    }
+}
+
+/* Landscape + Laptop */
+@media (orientation: landscape) and (max-width: 1024px) {
+    .navbar a, .project-buttons .button {
+        font-size: 1.1em;
+        padding: 0.5em 0.8em;
+    }
+    .hero-text img {
+        width: 40vw;
+    }
+}
+
+/* Landscape + Small screens */
+@media (orientation: landscape) and (max-width: 900px) {
+    .navbar a, .project-buttons .button {
+        font-size: 0.95em;
+        padding: 0.4em 0.7em;
+    }
+    .hero-text img {
+        width: 45vw;
+    }
+}
+
+/* Responsive - Portrait */
+@media (orientation: portrait) {
+    .navbar {
+        flex-direction: row;
+        padding: 0.223em 0;
+        font-size: 0.95em;
+    }
+    .project-buttons {
+        flex-direction: row;
+        gap: 0.5em;
+    }
+    .section {
+        padding: 1em 2vw;
+    }
+    .hero-text img {
+        width: 50vw;
+        height: auto;
+    }
+    .chess-iframe {
+        max-width: 98vw;
+        min-height: 6em;
+        aspect-ratio: 500 / 290;
+        height: auto;
+    }
+    footer {
+        padding: 0.4em 0.2em;
+        font-size: 0.9em; 
+    }
+}
+
+/* Portrait + Tablet */
+@media (orientation: portrait) and (max-width: 768px) {
+    .navbar a, .project-buttons .button {
+        font-size: 1.1em;
+        padding: 0.5em 0.7em;
+    }
+    .hero-text img {
+        width: 45vw;
+    }
+}
+
+/* Portrait + Mobile L */
+@media (orientation: portrait) and (max-width: 425px) {
+    .navbar a, .project-buttons .button {
+        font-size: 1em;
+        padding: 0.4em 0.6em;
+    }
+    .hero-text img {
+        width: 55vw;
+    }
+    .chess-iframe {
+        max-width: 98vw;
+        min-height: 340px;
+    }
+}
+
+/* Portrait + Mobile M */
+@media (orientation: portrait) and (max-width: 375px) {
+    .navbar a, .project-buttons .button {
+        font-size: 0.9em;
+        padding: 0.35em 0.5em;
+    }
+    .hero-text img {
+        width: 60vw;
+    }
+    .chess-iframe {
+        max-width: 98vw;
+        min-height: 415px;
+    }
+}
+
+/* Portrait + Mobile S */
+@media (orientation: portrait) and (max-width: 320px) {
+    .navbar a, .project-buttons .button {
+        font-size: 0.85em;
+        padding: 0.3em 0.4em;
+    }
+    .hero-text img {
+        width: 70vw;
+    }
+    .chess-iframe {
+        max-width: 98vw;
+        min-height: 415px;
+    }
+}
+
+/* Fix root font size for mobile */
+@media (max-width: 425px) {
+    html {
+        font-size: 100%;
+    }
+    .navbar {
+        flex-wrap: wrap;
+    }
+    .navbar a, .project-buttons .button {
+        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
+    }
+    .hero-text img {
+        width: 7em;
+        height: 7em;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 1em auto;
+    }
+    footer {
+        font-size: 0.9rem;
+        padding: 0.4em 0.2em;
+    }
+}
+
+.section,
+.hero {
+    padding-bottom: 4em;
+}
+
+.project-buttons {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 2em;
+    justify-content: center;
+}
+
+.project-buttons .button {
+    padding: 0.5em 1.2em;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.project-buttons .button:hover {
+    background: #333;
+}

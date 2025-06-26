@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHR Website Terminal-Chess</title>
+    <link rel="stylesheet" href="../../../../css/stylesheet.css">    
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../../../index.html">Home</a>
+        <a href="../../about.html">About Me</a>
+        <a href="../../resume.html">Resume</a>
+        <a href="../../projects.html">Projects</a>
+        <a href="../../contact.html">Contact</a>
+    </nav>
+
+    <!-- This is the first game with iframes & a button through projects. -->
+    <!-- If I do another add another button in projects and link it again. -->
+    <div id="terminal-chess" class="section terminal-chess">
+        <h3>Terminal Chess Game</h3>
+        <p>This is a working chess game that you can play by entering moves and pressing enter or clicking the submit button.  This program started as a team project for UCI EECS 22L but I wanted to go farther with the project because I was interested in development so I took the terminal game that we created and made it playable on my website.</p>
+        <iframe src="chess-backend/chess.html" class="chess-iframe" style="border: none;"></iframe>
+        <p>Some of the main challenges were:
+            <br> Getting the terminal colors to work (I used ASCII Escape codes for the original terminal game), 
+            <br> Figuring out Emscripten (the converter that allowed my C language program to convert to .html, .js, & .wasm needed to run this terminal game), 
+            <br> & Getting the correct spacing/font/padding to ensure the UI looks correct in the browser.
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 [Keegan Huapaya-Renbarger]. All rights reserved.</p>
+    </footer>
+</body>
+</html>
