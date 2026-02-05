@@ -396,6 +396,11 @@ img {
     background: #333;
 }
 
+/* An ID (#) is very specific and will override the general .button style */
+#half-size-button {
+    font-size: 0.8rem;
+}
+
 /* Contact page styles */
 .contact-buttons {
     display: flex;
