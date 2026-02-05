@@ -27,7 +27,8 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 [Keegan Huapaya-Renbarger]. All rights reserved.</p>
+        &copy; <span id="year"></span> [Keegan Huapaya-Renbarger]. All rights reserved.
+        <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
     </footer>
 </body>
 </html>
